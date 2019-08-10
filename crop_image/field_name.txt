@@ -1,0 +1,6 @@
+Full name
+Gender
+Date of birth
+Country of birth
+Country of citizenship
+Permanent home address
