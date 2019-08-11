@@ -1,3 +1,6 @@
+# Youtube video links:
+https://youtu.be/G-8ZZo8lD8Y
+
 # Ideas
 * Financial form may not changes frequently
 * With each form, we save the template and reuse
