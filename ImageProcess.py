@@ -1,5 +1,5 @@
 # rescale percent
-per_cent = 55
+per_cent = 35
 
 # convert pdf to jpg
 from pdf2image import convert_from_path
@@ -18,7 +18,7 @@ def extract_String_2_Dimension(line):
   line = line.replace(')','')
   line = line[1:-2].split(',')
   for index, x in enumerate(line):
-    line[index] = int(x)
+    line[index] = float(x)
   (x1, y1, x2, y2) = line
   x1 = int((x1 * 100) / per_cent)
   x2 = int((x2 * 100) / per_cent)
@@ -47,7 +47,7 @@ def cutImage(path_to_image, path_to_file, path_to_save):
     y2 = int((y2 * 100) / per_cent)
     crop_img = img[y1:y2, x1:x2]
     if (count % 2) == 0:
-      cv2.imwrite(path_to_save+'/'+'field'+'/'+'test'+('%03d'%(count/2))+'.jpg',crop_img)
+      cv2.imwrite(path_to_save+'/'+'test'+('%03d'%(count/2))+'.jpg',crop_img)
     count = count + 1 
     k = cv2.waitKey(0)
     if k == 27:
@@ -55,4 +55,5 @@ def cutImage(path_to_image, path_to_file, path_to_save):
   file.close()
 
 
-cutImage('WaL0.jpg', 'WaL0.txt','./crop_image')
+cutImage('templates/SOK/SOK2/SOK2.jpg', 'templates/SOK/SOK2/SOK2_rect_pos.txt','templates/SOK/SOK2/field')
+# convertPdf2Jpg('SOKA.pdf')
