@@ -54,6 +54,12 @@ def cutImage(path_to_image, path_to_file, path_to_save):
       break
   file.close()
 
+import argparse
+ap = argparse.ArgumentParser()
+ap.add_argument('-i', '--image', required=True, help='Path to input image')
+ap.add_argument('-p', '--position', required=True, help='Path to position file')
+ap.add_argument('-o', '--output', required=True, help='Path to output direction')
+args = vars(ap.parse_args())
 
-cutImage('templates/SOK/SOK2/SOK2.jpg', 'templates/SOK/SOK2/SOK2_rect_pos.txt','templates/SOK/SOK2/field')
+cutImage(args['image'], args['position'], args['output'])
 # convertPdf2Jpg('SOKA.pdf')
