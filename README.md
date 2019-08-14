@@ -23,10 +23,19 @@ https://youtu.be/G-8ZZo8lD8Y
 - It should work well with linux ( but not windows or mac )
 
 ## Installation:
-- Download repo to your localhost
-- CLone [Tesseract](https://github.com/sirfz/tesserocr) to my repo with name: tesserocr
-- Install python librery with pip: Pillow, numpy, opencv-python, matplotlib, pytesseract, img2pdf, pdf2img, v.v. ( install more if lack )
+- Download [this](https://github.com/larycoder/OCR_pdf_auto_filling_form) repo to your localhost
+- CLone [Tesseract](https://github.com/sirfz/tesserocr) to folder with name: tesserocr
 
+## Requirements
+###### #python
+- Image processing
+```
+pip install img2pdf opencv matplotlib numpy pdf2img
+```
+- Handle object storing user properties
+```
+pip install json
+```
 ## Process to run:
 - Put PDF file want to work to root of repo.
 - In ImageProcess.py: comment which not is function and run only convertPdf2Jpg(Path_to_file_of_PDF)
