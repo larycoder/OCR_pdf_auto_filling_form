@@ -1,5 +1,9 @@
 #!/usr/bin/bash
 
+pathImage=$1
+
+python ImageProcess.py --mode '2' --image $pathImage
+
 dir=./templates
 form=$1
 num=$2

@@ -7,7 +7,7 @@ def convertPdf2Jpg(path_to_file):
   pages = convert_from_path(path_to_file)
   count = 0
   for page in pages:
-    string = path_to_file[:3] + str(count) + '.jpg'
+    string = path_to_file[:-4] + str(count) + '.jpg'
     print(string)
     page.save(string, 'JPEG')
     count = count + 1
@@ -56,10 +56,13 @@ def cutImage(path_to_image, path_to_file, path_to_save):
 
 import argparse
 ap = argparse.ArgumentParser()
+ap.add_argument('-m', '--mode', required=True, help='mode of using: 1. cutImage 2.convertPdf')
 ap.add_argument('-i', '--image', required=True, help='Path to input image')
-ap.add_argument('-p', '--position', required=True, help='Path to position file')
-ap.add_argument('-o', '--output', required=True, help='Path to output direction')
+ap.add_argument('-p', '--position', required=False, help='Path to position file')
+ap.add_argument('-o', '--output', required=False, help='Path to output direction')
 args = vars(ap.parse_args())
 
-cutImage(args['image'], args['position'], args['output'])
-# convertPdf2Jpg('SOKA.pdf')
+if (args['mode'] == '1'):
+  cutImage(args['image'], args['position'], args['output'])
+elif (args['mode'] == '2'):
+  convertPdf2Jpg(args['image'])
