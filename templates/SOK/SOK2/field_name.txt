@@ -1,6 +1,0 @@
-Name (Last, First, MI):
-SUA Student ID#:
-Phone Number:
-Date of Birth:
-*Country of Citizenship:
-Email Address:

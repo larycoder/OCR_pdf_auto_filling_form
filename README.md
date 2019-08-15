@@ -20,7 +20,7 @@ https://youtu.be/G-8ZZo8lD8Y
 
 
 # First step to work:
-- It should work well with linux ( but not windows or mac )
+- This version should work well with linux ( but not windows or mac )
 
 ## Installation:
 - Download [this](https://github.com/larycoder/OCR_pdf_auto_filling_form) repo to your localhost
@@ -51,3 +51,4 @@ python GetRecPos.py --image templates/PDF_dir/subPDF_dir/*.jpg --output template
 When running this life, you will recieve 1 form of image to navigate position of fields. First you navigate field of words then navigate blank to fill of that field. You can navigate by click on 1 point then move to the next point and click again. After done all navigation, press C to save and exit. 
 Then you can go to **PDF_name_rect_pos.txt** to check all position with pair of line equal to position field and position blank.
 ###### **Note: for multiple pages PDF file, you will need to repeat this step multiple times for each subdirection.**
+
