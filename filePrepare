@@ -1,0 +1,67 @@
+#!/usr/bin/bash
+
+pathImage=$1
+dirImage=`dirname $pathImage`
+nameImage=${pathImage:0:-4}
+
+# function repare folder ##
+folderPrepare()
+{
+  local dir=./templates
+  local form=$1
+  local num=$2
+  if [ ! -d $dir ]; 
+    then mkdir $dir;
+  fi
+  dir=$dir'/'$form;
+  if [ ! -d $dir ];
+    then mkdir $dir;
+  fi
+  dir=$dir'/'$form$num;
+  if [ ! -d $dir ];
+    then mkdir $dir;
+  fi
+  temp=$dir'/field'
+
+  if [ ! -d $temp ];
+    then mkdir $temp;
+  fi
+  temp=$dir'/field_name.txt'
+  if [ ! -f $temp ];
+    then touch $temp
+  fi
+  temp=$dir'/template.json'
+  if [ ! -f $temp ];
+    then touch $temp
+  fi
+  temp=$dir'/user.json'
+  if [ ! -f $temp ];
+    then touch $temp
+  fi
+  temp=$dir'/'$form'_rect_pos'.txt
+  if [ ! -f $temp ];
+    then touch $temp
+  fi
+  temp=$dir'/user_value.txt'
+  if [ ! -f $temp ];
+    then touch $temp
+  fi
+}
+
+
+
+####### Real script ##################################
+######################################################
+python ImageProcess.py --mode '2' --image $pathImage
+
+Num=0
+
+for entry in "$dirImage"/*
+do
+  if [ "${entry:2}" = "$nameImage$(printf "%03d" $Num).jpg" ]
+  then
+    `folderPrepare $nameImage $(printf "%03d" $Num)`
+    mv "$nameImage$(printf "%03d" $Num).jpg" "templates/$nameImage/$nameImage$(printf "%03d" $Num)"
+    Num=$(($Num+1))
+  fi
+done
