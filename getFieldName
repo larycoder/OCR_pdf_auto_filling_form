@@ -1,0 +1,13 @@
+# !/bin/bash
+
+pathSubDir=$1
+Image="$pathSubDir/*.jpg"
+Position="$pathSubDir/*_rect_pos.txt"
+Output="$pathSubDir/field_name.txt"
+
+if [ -d $pathSubDir ];
+then
+  python ImageProcess.py --mode "1" --image "$Image"--position "$Position" --output "$Output"
+else
+  echo "there are wrong direction path or its not exit!"
+fi
