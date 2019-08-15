@@ -7,7 +7,7 @@ def convertPdf2Jpg(path_to_file):
   pages = convert_from_path(path_to_file)
   count = 0
   for page in pages:
-    string = path_to_file[:-4] + str(count) + '.jpg'
+    string = path_to_file[:-4] + str("%0.3d"%count) + '.jpg'
     print(string)
     page.save(string, 'JPEG')
     count = count + 1
@@ -58,7 +58,7 @@ import argparse
 ap = argparse.ArgumentParser()
 ap.add_argument('-m', '--mode', required=True, help='mode of using: 1. cutImage 2.convertPdf')
 ap.add_argument('-i', '--image', required=True, help='Path to input image')
-ap.add_argument('-p', '--position', required=False, help='Path to position file')
+ap.add_argument('-p', '--position', required=False, help='Path to position file (mode 1)')
 ap.add_argument('-o', '--output', required=False, help='Path to output direction')
 args = vars(ap.parse_args())
 
