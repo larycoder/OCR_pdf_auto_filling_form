@@ -48,13 +48,13 @@ def merge_Value_2_Json(path_to_value, path_to_file_json):
 import argparse
 ap = argparse.ArgumentParser()
 ap.add_argument('-m', '--mode', required=True, help='mode for working')
-ap.add_argument('-u', '--user_value', required=True, help='Path to user file')
-ap.add_argument('-it', '--input_template', required=True, help='Path to template json input')
-ap.add_argument('-uj', '--user_json', required=True, help='Path to user json')
+ap.add_argument('-u', '--user_value', required=False, help='Path to user file')
+ap.add_argument('-it', '--input_template', required=False, help='Path to template json input')
+ap.add_argument('-uj', '--user_json', required=False, help='Path to user json')
 
-ap.add_argument('-f', '--file_name', required=True, help='Path to file name')
-ap.add_argument('-p', '--position', required=True, help='Path to file position')
-ap.add_argument('-ot', '--output_template', required=True, help='Path to template json output')
+ap.add_argument('-f', '--file_name', required=False, help='Path to file name')
+ap.add_argument('-p', '--position', required=False, help='Path to file position')
+ap.add_argument('-ot', '--output_template', required=False, help='Path to template json output')
 
 args = vars(ap.parse_args())
 
