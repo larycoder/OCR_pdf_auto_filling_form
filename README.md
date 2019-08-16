@@ -41,7 +41,7 @@ pip install json
 - Put PDF financial form to root of repo.
 - From terminal run:
 ```
-./filePrepare $Name_of_PDF
+./filePrepare $File_PDF
 ```
 file **filePrepare** has function to generate New folder in direction templates/ with the name is name of PDF file. In that folder will have many subfolder equal to 1 page PDF. As PDF file has many pages then each page will be convert to 1 image jpg and put to the subfolder mention above.
 
@@ -51,23 +51,24 @@ file **filePrepare** has function to generate New folder in direction templates/
 
 - From terminal run:
 ```
-python GetRecPos.py --image templates/$PDF_dir/$subPDF_dir/*.jpg --output templates/$PDF_dir/$subPDF_dir/*_rect_pos.txt
+./getRecPos templates/$PDF_file_dir/$sub_PDF_file_dir
 ```
-When running this life, you will recieve 1 form of image to navigate position of fields. First you navigate field of words then navigate blank to fill of that field. You can navigate by click on 1 point then move to the next point and click again. After done all navigation, press C to save and exit. 
-Then you can go to **PDF_name_rect_pos.txt** to check all position with pair of line equal to position field and position blank.
+When running this fife, you will recieve 1 form of image to navigate position of fields. First you navigate field of words then navigate blank to fill of that field. You can navigate by right click on 1 point, hold click and move to the next point then release click which will define 1 rectangle -> position of this rect will be saved for next step. After done all navigation, press C to save and exit. 
+
+Then you can go to **PDF_name_rect_pos.txt** on subdirection that you define in code to check all position with pair of line equal to position field and position blank.
 
 - Building field of words in text form:
 ```
 ./getFieldName templates/$PDF_dir/$subPDF_dir
 ```
-This function will cat all image that you was navigated that include word and translate them on text saving on file: **field_name.txt** in the folder which you has already presented in code.
+This function will catch all image that you was navigated that include word and translate them upon text saving on file: **field_name.txt** in the folder which you has already presented in code.
 
 Right now, because the translate image to code depend on tesserocr which can has some error on detecting and translating. You need to do this stuff by hand:
 
 **Rules of field_name.txt file:**
 1. Each words field navigating in previous step need to layout in only 1 line.
-2. The order of words in file must corresponding to the order of words field when you navigate in image upon previous step.
+2. The order of words in file must corresponding to the order of words field when you navigated in image upon previous step.
 
-Then, checking and making sure all file field_name.txt on all subfolder are correct before go to next step.
+Then, checking and making sure all file field_name.txt on all subfolder are correct before going to next step.
 
 - 

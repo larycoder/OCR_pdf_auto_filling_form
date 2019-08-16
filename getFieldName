@@ -3,11 +3,13 @@
 pathSubDir=$1
 Image="$pathSubDir/*.jpg"
 Position="$pathSubDir/*_rect_pos.txt"
-Output="$pathSubDir/field_name.txt"
+Field_path="$pathSubDir/field"
+Field_name="$pathSubDir/field_name.txt"
 
 if [ -d $pathSubDir ];
 then
-  python ImageProcess.py --mode "1" --image "$Image"--position "$Position" --output "$Output"
+  python ImageProcess.py --mode "1" --image "$Image"--position "$Position" --output "$Field_path"
+  python3 GetFieldName.py --directory "$Field_path" --output "$Field_name"
 else
   echo "there are wrong direction path or its not exit!"
 fi

@@ -36,7 +36,7 @@ args = vars(ap.parse_args())
 image = cv2.imread(args["image"])
 print('Original Dimensions : ',image.shape)
  
-scale_percent = 35 # percent of original size
+scale_percent = 27 # percent of original size
 width = int(image.shape[1] * scale_percent / 100)
 height = int(image.shape[0] * scale_percent / 100)
 dim = (width, height)
@@ -62,6 +62,6 @@ while True:
     # if the 'c' key is pressed, break from the loop
     elif key == ord("c"):
         break
-
+file.close()
 # close all open windows
 cv2.destroyAllWindows() 

@@ -1,1 +1,21 @@
 # !/bin/bash
+pathDir=$1
+PDF_name=`basename $pathDir`
+
+for entry in $pathDir/*
+do
+  subDir=`basename $entry`
+  if [ -d $entry ] && [ ${subDir:0:-3} = $PDF_name ];
+  then
+    pathSubDir=$entry
+    Position="$pathSubDir/*_rect_pos.txt"
+    Field_name="$pathSubDir/field_name.txt"
+    Template="$pathSubDir/template.json"
+    if [ -d $pathSubDir ];
+    then
+      python ObjectHandle.py --mode "2" --file_name "$Field_name" --position "$Position" --output_template "$Template"
+    else
+      echo "the direction $pathSubDir has error or its not exit!"
+    fi
+  fi
+done

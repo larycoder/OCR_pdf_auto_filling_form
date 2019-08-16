@@ -1,0 +1,6 @@
+# !/bin/bash
+
+path=$1
+path2JPG=`echo $path/*.jpg`
+path2position=`echo $path/*_rect_pos.txt`
+python GetRectPos.py --image "$path2JPG" --output "$path2position"

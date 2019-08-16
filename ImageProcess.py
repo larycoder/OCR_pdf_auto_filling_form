@@ -1,5 +1,5 @@
 # rescale percent
-per_cent = 35
+per_cent = 27
 
 # convert pdf to jpg
 from pdf2image import convert_from_path
