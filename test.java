@@ -6,6 +6,7 @@ import java.io.*;
 
 class test{
   private static int i = 0;
+  private static String path2value = null;
 
   private static ArrayList readFile(String filename) throws Exception{
     ArrayList fields = new ArrayList();
@@ -20,6 +21,7 @@ class test{
   }
   public static void main(String[] args) throws Exception{
     ArrayList fields = readFile(args[0]);
+    path2value = args[1];
     ArrayList values = new ArrayList();
 
     JFrame mainFrame = new JFrame("Input");
@@ -44,7 +46,7 @@ class test{
         i = i + 1;
         if (i >= fields.size()){
           try{
-            FileWriter writer = new FileWriter("user_value.txt"); 
+            FileWriter writer = new FileWriter(path2value); 
             for(int j = 0; j < values.size(); j++) {
               writer.write(values.get(j).toString() + System.lineSeparator());
             }

@@ -36,6 +36,13 @@ pip install img2pdf opencv matplotlib numpy pdf2img
 ```
 pip install json
 ```
+
+###### #java
+- This project was built in java 11
+with these packages:
+```
+java.awt javax.swing java.util java.io
+```
 ## Process to run:
 ### Convert PDF to JPG and put it to folder for handling:
 - Put PDF financial form to root of repo.
@@ -71,4 +78,20 @@ Right now, because the translate image to code depend on tesserocr which can has
 
 Then, checking and making sure all file field_name.txt on all subfolder are correct before going to next step.
 
-- 
+- Build template for PDF form:
+```
+./buildTemplate templates/$PDF_dir_want_to_build
+```
+
+This function will go throw all subdirection of PDF direction, reading all position file, field_name file and depending on those file to create 1 dictionary hold all information needed in kind of json file. You can check that file in **template.json** in each subdirection of PDF folder.
+
+### Request user value and return it back to PDF file.
+
+- Run in terminal:
+```
+./exportPDF templates/$PDF_file_dir
+```
+
+By running this script: the function will go throw all subdirectory of PDF folder and create GUI to ask user input their value then put all that info to user.json Which will be using to insert user information to PDF form. This process will run multiple times depend on number of subdirectory of PDF folder -> there will be multiple windows show and ask user to insert their info.
+
+###### **you can check final result in PDF file holded on PDF folder with name equal to PDF file you put in first step.**

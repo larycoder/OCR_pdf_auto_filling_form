@@ -14,8 +14,6 @@ for img in os.listdir(args['directory']):
     with open(args['directory'] + '/' + img, 'rb') as f:
       bytesIOs.append(io.BytesIO(f.read()))
 
-bytesIOs.sort()
-
 with open(args['output'], 'wb') as o:
   o.write(img2pdf.convert([i.read() for i in bytesIOs]))
 
