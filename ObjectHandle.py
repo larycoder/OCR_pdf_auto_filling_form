@@ -44,27 +44,28 @@ def merge_Value_2_Json(path_to_value, path_to_file_json):
     obj['fill_val'] = String[:-1]
   return Dict
 
-# add arguments for file
-import argparse
-ap = argparse.ArgumentParser()
-ap.add_argument('-m', '--mode', required=True, help='mode for working')
-ap.add_argument('-u', '--user_value', required=False, help='Path to user file')
-ap.add_argument('-it', '--input_template', required=False, help='Path to template json input')
-ap.add_argument('-uj', '--user_json', required=False, help='Path to user json')
+if __name__ == '__main__':
+  # add arguments for file
+  import argparse
+  ap = argparse.ArgumentParser()
+  ap.add_argument('-m', '--mode', required=True, help='mode for working')
+  ap.add_argument('-u', '--user_value', required=False, help='Path to user file')
+  ap.add_argument('-it', '--input_template', required=False, help='Path to template json input')
+  ap.add_argument('-uj', '--user_json', required=False, help='Path to user json')
 
-ap.add_argument('-f', '--file_name', required=False, help='Path to file name')
-ap.add_argument('-p', '--position', required=False, help='Path to file position')
-ap.add_argument('-ot', '--output_template', required=False, help='Path to template json output')
+  ap.add_argument('-f', '--file_name', required=False, help='Path to file name')
+  ap.add_argument('-p', '--position', required=False, help='Path to file position')
+  ap.add_argument('-ot', '--output_template', required=False, help='Path to template json output')
 
-args = vars(ap.parse_args())
+  args = vars(ap.parse_args())
 
 
-# save user json
-if (args['mode']=='1'):
-  Dict = merge_Value_2_Json(args['user_value'], args['input_template'])
-  with open(args['user_json'], 'w') as outfile:
-    json.dump(Dict, outfile)
+  # save user json
+  if (args['mode']=='1'):
+    Dict = merge_Value_2_Json(args['user_value'], args['input_template'])
+    with open(args['user_json'], 'w') as outfile:
+      json.dump(Dict, outfile)
 
-# save template json
-if (args['mode']=='2'):
-  DictionaryCreate(args['file_name'], args['position'], args['output_template'])
+  # save template json
+  if (args['mode']=='2'):
+    DictionaryCreate(args['file_name'], args['position'], args['output_template'])

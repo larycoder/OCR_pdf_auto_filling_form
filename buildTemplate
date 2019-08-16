@@ -8,7 +8,7 @@ do
   if [ -d $entry ] && [ ${subDir:0:-3} = $PDF_name ];
   then
     pathSubDir=$entry
-    Position="$pathSubDir/*_rect_pos.txt"
+    Position=`echo $pathSubDir/*_rect_pos.txt`
     Field_name="$pathSubDir/field_name.txt"
     Template="$pathSubDir/template.json"
     if [ -d $pathSubDir ];

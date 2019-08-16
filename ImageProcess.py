@@ -53,16 +53,16 @@ def cutImage(path_to_image, path_to_file, path_to_save):
     if k == 27:
       break
   file.close()
+if __name__ == '__main__':
+  import argparse
+  ap = argparse.ArgumentParser()
+  ap.add_argument('-m', '--mode', required=True, help='mode of using: 1. cutImage 2.convertPdf')
+  ap.add_argument('-i', '--image', required=True, help='Path to input image')
+  ap.add_argument('-p', '--position', required=False, help='Path to position file (mode 1)')
+  ap.add_argument('-o', '--output', required=False, help='Path to output direction')
+  args = vars(ap.parse_args())
 
-import argparse
-ap = argparse.ArgumentParser()
-ap.add_argument('-m', '--mode', required=True, help='mode of using: 1. cutImage 2.convertPdf')
-ap.add_argument('-i', '--image', required=True, help='Path to input image')
-ap.add_argument('-p', '--position', required=False, help='Path to position file (mode 1)')
-ap.add_argument('-o', '--output', required=False, help='Path to output direction')
-args = vars(ap.parse_args())
-
-if (args['mode'] == '1'):
-  cutImage(args['image'], args['position'], args['output'])
-elif (args['mode'] == '2'):
-  convertPdf2Jpg(args['image'])
+  if (args['mode'] == '1'):
+    cutImage(args['image'], args['position'], args['output'])
+  elif (args['mode'] == '2'):
+    convertPdf2Jpg(args['image'])
